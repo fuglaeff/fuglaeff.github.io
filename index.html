@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <button id="btn" class="button">Say Hello</button>
+
+</body>
+<script>
+let tg = window.Telegram.WebApp; //получаем объект webapp телеграма
+let btn = document.getElementById("btn");
+
+tg.expand(); //расширяем на все окно
+
+tg.MainButton.disable()
+
+btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+    tg.sendData('Hello');
+    tg.close();
+});
+
+</script>
+</html>
