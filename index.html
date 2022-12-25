@@ -7,19 +7,21 @@
 </head>
 <body>
   <button id="btn" class="button">Say Hello</button>
-
+  <div id="test"></div>
 </body>
 <script>
 let tg = window.Telegram.WebApp; //получаем объект webapp телеграма
 let btn = document.getElementById("btn");
+let d = document.getElementById("test");
 
 tg.expand(); //расширяем на все окно
 
 tg.MainButton.disable()
 
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+    d.innerText = 'we a here';
     tg.sendData('Hello');
-    tg.close();
+    // tg.close();
 });
 
 </script>
