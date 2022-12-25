@@ -1,28 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        ::-webkit-scrollbar {
+            overflow: hidden;
+        }
+        body {
+            font-family: monospace;
+        }
+        .bot-command {
+            /* Below are styles for the codebox (not the code itself) */
+
+            border-radius: .2rem;
+            background: #eeee;
+            width:100%;
+            height: 1.2rem;
+            overflow:auto;
+            padding:10px;
+            margin: 10px;
+            text-align: left;
+
+        }
+        .bot-command code {
+            float: left;
+            overflow-x: auto;
+            width: auto;
+            white-space: nowrap;
+            line-height: 1rem;
+            /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
+        }
+        .bot-command i {
+            float: right;
+            line-height:1rem;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
-  <button id="btn" class="button">Say Hello</button>
-  <div id="test"></div>
+    
+        
+            <div class="container">
+                
+                    <h1 class="section-name">
+                        Startrek
+                    </h1>
+                
+                
+                    <p class="description">
+                        Команды для взаимодействия с трекером задач
+                    </p>
+                
+                
+                    
+                        <h2 class="command-name">
+                            Посмотреть worklog записи за сегодня
+                        </h2>
+                    
+                    
+                        <div class="bot-command">
+                            <code>st worklog</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                        <div class="bot-command">
+                            <code>startrek worklog</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                
+                    
+                        <h2 class="command-name">
+                            Посмотреть worklog записи за дату
+                        </h2>
+                    
+                    
+                        <div class="bot-command">
+                            <code>st worklog -f &ltdate&gt</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                        <div class="bot-command">
+                            <code>startrek worklog -f &ltdate&gt</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                
+            </div>
+        
+    
 </body>
-<script>
-let tg = window.Telegram.WebApp; //получаем объект webapp телеграма
-let btn = document.getElementById("btn");
-let d = document.getElementById("test");
-
-tg.expand(); //расширяем на все окно
-
-tg.MainButton.disable()
-
-btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-    d.innerText = 'we a here';
-    tg.sendData('Hello');
-    // tg.close();
-});
-
-</script>
 </html>
