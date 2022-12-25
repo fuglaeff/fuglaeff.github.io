@@ -19,7 +19,7 @@
 
             border-radius: .2rem;
             background: #eeee;
-            width:100%;
+            width:auto;
             height: 1.2rem;
             overflow:auto;
             padding:10px;
@@ -33,12 +33,14 @@
             width: auto;
             white-space: nowrap;
             line-height: 1rem;
+            display:inline-block;
             /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
         }
         .bot-command i {
             float: right;
             line-height:1rem;
             vertical-align: middle;
+            display:inline-block;
         }
     </style>
 </head>
@@ -86,7 +88,7 @@
                         </div>
                     
                         <div class="bot-command">
-                            <code>startrek worklog -f &ltdate&gt</code>
+                            <code>startrek worklog -f &ltdate&gt veryveryveryveryveryveryveryveryveryverylongcommand</code>
                             <i class="fa-solid fa-copy"></i>
                         </div>
                     
@@ -95,4 +97,16 @@
         
     
 </body>
+<script>
+    let tg = window.Telegram.WebApp;
+
+    document.querySelectorAll('.fa-solid').forEach(item => {
+        item.addEventListener('click', event => {
+            let command_text = item.previousElementSibling.innerText;
+
+            navigator.clipboard.writeText(command_text);
+            tg.close()
+        })
+    })
+</script>
 </html>
