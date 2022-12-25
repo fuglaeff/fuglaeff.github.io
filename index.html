@@ -13,31 +13,31 @@
         }
         body {
             font-family: monospace;
-            font-size: 10vh;
+            align-content: center;
+            background-color: var(--tg-theme-bg-color);
+            color: var(--tg-theme-text-color);
         }
         .bot-command {
             /* Below are styles for the codebox (not the code itself) */
-
             border-radius: .2rem;
             background: #eeee;
-            width:100vw;
-            overflow:auto;
             padding:10px;
             margin: 10px;
-            text-align: left;
-
+            display: flex;
+            flex-direction: row;
         }
         .bot-command code {
             float: left;
+            /*width:85.5%;*/
+            margin-right: auto;
             overflow-x: auto;
-            width: 90vw;
             white-space: nowrap;
             display:inline-block;
             /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
         }
         .bot-command i {
             float: right;
-            width:10vw;
+            margin-left: auto;
             vertical-align: middle;
             display:inline-block;
         }
@@ -66,12 +66,12 @@
                     
                         <div class="bot-command">
                             <code>st worklog</code>
-                            <i class="fa-solid fa-copy fa-5x"></i>
+                            <i class="fa-solid fa-copy"></i>
                         </div>
                     
                         <div class="bot-command">
                             <code>startrek worklog</code>
-                            <i class="fa-solid fa-copy fa-5x"></i>
+                            <i class="fa-solid fa-copy"></i>
                         </div>
                     
                 
@@ -83,12 +83,63 @@
                     
                         <div class="bot-command">
                             <code>st worklog -f &ltdate&gt</code>
-                            <i class="fa-solid fa-copy fa-5x"></i>
+                            <i class="fa-solid fa-copy"></i>
                         </div>
                     
                         <div class="bot-command">
-                            <code>startrek worklog -f &ltdate&gt veryveryveryveryveryveryveryveryveryverylongcommand</code>
-                            <i class="fa-solid fa-copy fa-5x"></i>
+                            <code>startrek worklog --from &ltdate&gt</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                
+                    
+                        <h2 class="command-name">
+                            Посмотреть worklog записи за промежуток дат
+                        </h2>
+                    
+                    
+                        <div class="bot-command">
+                            <code>st worklog -f &ltdate&gt -t &ltdate&gt</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                        <div class="bot-command">
+                            <code>startrek worklog --from &ltdate&gt --to &ltdate&gt</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                
+                    
+                        <h2 class="command-name">
+                            Удалить worklog запись
+                        </h2>
+                    
+                    
+                        <div class="bot-command">
+                            <code>st worklog-delete -i &ltstr&gt -w &ltint&gt</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                        <div class="bot-command">
+                            <code>startrek worklog-delete --issue_key &ltstr&gt --worklog_id &ltint&gt</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                
+                    
+                        <h2 class="command-name">
+                            Создать worklog запись
+                        </h2>
+                    
+                    
+                        <div class="bot-command">
+                            <code>st worklog-create -i &ltstr&gt -d &ltstr&gt [-s &ltdatetime&gt] [-c &ltstr&gt]</code>
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    
+                        <div class="bot-command">
+                            <code>startrek worklog-create --issue_key &ltstr&gt --duration &ltstr&gt [--start &ltdatetime&gt] [--comment &ltstr&gt]</code>
+                            <i class="fa-solid fa-copy"></i>
                         </div>
                     
                 
@@ -104,6 +155,7 @@
             let command_text = item.previousElementSibling.innerText;
 
             navigator.clipboard.writeText(command_text);
+            alert('Command copied');
             tg.close()
         })
     })
