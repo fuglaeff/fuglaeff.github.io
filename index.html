@@ -11,6 +11,7 @@
         ::-webkit-scrollbar {
             overflow: hidden;
             height: 0;
+            width: 0;
         }
         body {
             font-family: monospace;
@@ -20,12 +21,50 @@
             margin: 0 auto 0 auto;
             padding:10px;
         }
+        .section-head {
+            display: flex;
+        }
+
+        .section-head h1 {
+            float: left;
+            color: black;
+            margin-right: auto;
+            display:inline-block;
+            font-size: 32px;
+        }
+
+        .section-head .fa-circle-chevron-up {
+            float: right;
+            margin: auto 0 auto auto;
+            vertical-align: middle;
+            display:inline-block;
+            transition-duration: .2s;
+            transform: rotate(0);
+            transform-origin: center;
+        }
+
+        .section-head .fa-circle-chevron-up.collapsed {
+            float: right;
+            margin: auto 0 auto auto;
+            vertical-align: middle;
+            display:inline-block;
+            transition-duration: .2s;
+            transform: rotate(180deg);
+            transform-origin: center;
+        }
+
+        .container.collapsed {
+            display: none;
+        }
+
         .bot-command {
+            /* Below are styles for the codebox (not the code itself) */
             border-radius: .2rem;
             background: #eeee;
             padding:10px;
-            display: flex;
             margin-bottom: 10px;
+            display: flex;
+            /*flex-direction: row;*/
         }
         .bot-command code {
             float: left;
@@ -36,7 +75,7 @@
             display:inline-block;
             /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
         }
-        .bot-command .fa-solid {
+        .bot-command .fa-copy {
             float: right;
             margin-left: auto;
             vertical-align: middle;
@@ -72,12 +111,15 @@
 <body>
     
         
-            <div class="container">
-                
+            
+                <div class="section-head">
                     <h1 class="section-name">
                         Startrek
                     </h1>
-                
+                    <i class="fa-solid fa-circle-chevron-up fa-2xl"></i>
+                </div>
+            
+            <div class="container">
                 
                     <p class="description">
                         Команды для взаимодействия с трекером задач
@@ -86,7 +128,7 @@
                 
                     
                         <h2 class="command-name">
-                            Посмотреть worklog записи за промежуток дат
+                            Просмотреть worklog записи
                         </h2>
                     
                     
@@ -244,13 +286,30 @@
 <script>
     let tg = window.Telegram.WebApp;
 
-    document.querySelectorAll('.fa-solid').forEach(item => {
+    document.querySelectorAll('.fa-copy').forEach(item => {
         item.addEventListener('click', event => {
             let command_text = item.previousElementSibling.innerText;
 
             navigator.clipboard.writeText(command_text);
             alert('Команда скопирована');
             tg.close();
+        })
+    })
+
+    document.querySelectorAll('.fa-circle-chevron-up').forEach(item => {
+        item.addEventListener('click', event => {
+            let command_block = item.parentElement.nextElementSibling;
+            console.log(command_block);
+            let command_block_cls_list = command_block.classList;
+            console.log(command_block_cls_list);
+            if (command_block_cls_list.contains('collapsed')) {
+                command_block_cls_list.remove('collapsed');
+                item.classList.remove('collapsed');
+            } else {
+                command_block_cls_list.add('collapsed');
+                item.classList.add('collapsed');
+            };
+
         })
     })
 </script>
