@@ -56,22 +56,20 @@
         }
 
         .bot-command {
-            /* Below are styles for the codebox (not the code itself) */
             border-radius: .2rem;
-            background: #eeee;
+            /*background: #eeee;*/
+            background-color: var(--tg-theme-button-color);
             padding:10px;
             margin-bottom: 10px;
             display: flex;
-            /*flex-direction: row;*/
         }
         .bot-command code {
             float: left;
-            color: black;
+            color: var(--tg-theme-button-text-color);
             margin-right: auto;
             overflow-x: auto;
             white-space: nowrap;
             display:inline-block;
-            /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
         }
         .bot-command .fa-copy {
             float: right;
