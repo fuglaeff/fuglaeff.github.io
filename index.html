@@ -57,7 +57,6 @@
 
         .bot-command {
             border-radius: .2rem;
-            /*background: #eeee;*/
             background-color: var(--tg-theme-button-color);
             padding:10px;
             margin-bottom: 10px;
@@ -120,16 +119,43 @@
                         
                             
                                 <h2 class="command-name">
-                                    Просмотреть зарегистрированные чаты
+                                    Просмотреть log записи
                                 </h2>
                             
                             
                                 <div class="bot-command">
-                                    <code>chats</code>
+                                    <code>access-log -r <str></code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                                <div class="bot-command">
+                                    <code>access-log --request_id <str></code>
                                     <i class="fa-solid fa-copy"></i>
                                 </div>
                             
                             
+                                <table class="param-table">
+                                    <tr>
+                                        <td class="param-col"><b>Параметр</b></td>
+                                        <td class="empty-col"></td>
+                                        <td class="param-descr-col"><b>Описание</b></td>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-r STR</span> <span>--request_id STR</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">Идентификатор log записи</td>
+                                        </tr>
+                                    
+                                </table>
+                            
+                            
+                                <h3>
+                                    Примеры:
+                                </h3>
+                                <div class="bot-command">
+                                    <code><i># находит log запись</i><br>access-log --request_id e1e1j12j1123klkgygc567890</code>
+                                </div>
                             
                         
                     
@@ -178,6 +204,28 @@
                                 </div>
                             
                             
+                                <table class="param-table">
+                                    <tr>
+                                        <td class="param-col"><b>Параметр</b></td>
+                                        <td class="empty-col"></td>
+                                        <td class="param-descr-col"><b>Описание</b></td>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-c INT</span> <span>--chat_id INT</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">Идентификатор чата в телеграм</td>
+                                        </tr>
+                                    
+                                </table>
+                            
+                            
+                                <h3>
+                                    Примеры:
+                                </h3>
+                                <div class="bot-command">
+                                    <code><i># регистрирует чат</i><br>chats new --chat_id 1234567890</code>
+                                </div>
                             
                         
                             
@@ -197,6 +245,28 @@
                                 </div>
                             
                             
+                                <table class="param-table">
+                                    <tr>
+                                        <td class="param-col"><b>Параметр</b></td>
+                                        <td class="empty-col"></td>
+                                        <td class="param-descr-col"><b>Описание</b></td>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-c INT</span> <span>--chat_id INT</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">Идентификатор чата в телеграм</td>
+                                        </tr>
+                                    
+                                </table>
+                            
+                            
+                                <h3>
+                                    Примеры:
+                                </h3>
+                                <div class="bot-command">
+                                    <code><i># удаляет чат</i><br>chats delete --chat_id 1234567890</code>
+                                </div>
                             
                         
                     
