@@ -27,10 +27,8 @@
 
         .section-head h1 {
             float: left;
-            color: black;
             margin-right: auto;
             display:inline-block;
-            font-size: 32px;
         }
 
         .section-head .fa-circle-chevron-up {
@@ -114,172 +112,270 @@
             
                 <div class="section-head">
                     <h1 class="section-name">
-                        Startrek
+                        Access logs
                     </h1>
-                    <i class="fa-solid fa-circle-chevron-up fa-2xl"></i>
+                    <i class="fa-solid fa-circle-chevron-up fa-2xl collapsed"></i>
+                </div>
+                <div class="container collapsed">
+                    
+                    
+                        
+                            
+                                <h2 class="command-name">
+                                    Просмотреть зарегистрированные чаты
+                                </h2>
+                            
+                            
+                                <div class="bot-command">
+                                    <code>chats</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                            
+                            
+                        
+                    
                 </div>
             
-            <div class="container">
-                
-                    <p class="description">
-                        Команды для взаимодействия с трекером задач
-                    </p>
-                
-                
-                    
-                        <h2 class="command-name">
-                            Просмотреть worklog записи
-                        </h2>
+        
+            
+                <div class="section-head">
+                    <h1 class="section-name">
+                        Chat
+                    </h1>
+                    <i class="fa-solid fa-circle-chevron-up fa-2xl collapsed"></i>
+                </div>
+                <div class="container collapsed">
                     
                     
-                        <div class="bot-command">
-                            <code>st worklog [-f &ltdate&gt] [-t &ltdate&gt]</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    
-                        <div class="bot-command">
-                            <code>startrek worklog [--from &ltdate&gt] [--to &ltdate&gt]</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    
-                    
-                        <table class="param-table">
-                            <tr>
-                                <td class="param-col"><b>Параметр</b></td>
-                                <td class="empty-col"></td>
-                                <td class="param-descr-col"><b>Описание</b></td>
-                            </tr>
+                        
                             
-                                <tr>
-                                    <td class="param-col"><span>-f DATE</span> <span>--from DATE</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">[Опциональный] При установке параметра from, будет выведен worklog за указанную дату. Формат ввода: <span>YYYY-MM-DD</span></td>
-                                </tr>
+                                <h2 class="command-name">
+                                    Просмотреть зарегистрированные чаты
+                                </h2>
                             
-                                <tr>
-                                    <td class="param-col"><span>-t DATE</span> <span>--to DATE</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">[Опциональный] При установке параметра to в связке с from, будет выведен worklog за промежуток [from, to). Формат ввода: <span>YYYY-MM-DD</span></td>
-                                </tr>
                             
-                        </table>
-                    
-                    
-                        <h3>
-                            Примеры:
-                        </h3>
-                        <div class="bot-command">
-                            <code><i># вывод записей worklog за сегодня</i><br>st worklog<br><br><i># вывод записей worklog за 2022-12-15</i><br>startrek worklog -f 2022-12-15<br><br><i># вывод записей worklog за 2022-12-15/2022-12-17</i><br>st worklog --from 2022-12-15 --to 2022-12-18</code>
-                        </div>
-                    
-                
-                    
-                        <h2 class="command-name">
-                            Удалить worklog запись
-                        </h2>
-                    
-                    
-                        <div class="bot-command">
-                            <code>st worklog-delete -i &ltstr&gt -w &ltint&gt</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    
-                        <div class="bot-command">
-                            <code>startrek worklog-delete --issue_key &ltstr&gt --worklog_id &ltint&gt</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    
-                    
-                        <table class="param-table">
-                            <tr>
-                                <td class="param-col"><b>Параметр</b></td>
-                                <td class="empty-col"></td>
-                                <td class="param-descr-col"><b>Описание</b></td>
-                            </tr>
+                                <div class="bot-command">
+                                    <code>chats</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
                             
-                                <tr>
-                                    <td class="param-col"><span>-i STR</span> <span>--issue_key STR</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">Ключ задачи в трекере</td>
-                                </tr>
                             
-                                <tr>
-                                    <td class="param-col"><span>-w INT</span> <span>--worklog_id INT</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">Идентификатор записи в worklog</td>
-                                </tr>
                             
-                        </table>
-                    
-                    
-                        <h3>
-                            Примеры:
-                        </h3>
-                        <div class="bot-command">
-                            <code><i># удаляет запись worklog</i><br>st worklog-delete -i CLOUD-12345 --worklog_id 587429134</code>
-                        </div>
-                    
-                
-                    
-                        <h2 class="command-name">
-                            Создать worklog запись
-                        </h2>
-                    
-                    
-                        <div class="bot-command">
-                            <code>st worklog-create -i &ltstr&gt -d &ltstr&gt [-s &ltdatetime&gt] [-c &ltstr&gt]</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    
-                        <div class="bot-command">
-                            <code>startrek worklog-create --issue_key &ltstr&gt --duration &ltstr&gt [--start &ltdatetime&gt] [--comment &ltstr&gt]</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    
-                    
-                        <table class="param-table">
-                            <tr>
-                                <td class="param-col"><b>Параметр</b></td>
-                                <td class="empty-col"></td>
-                                <td class="param-descr-col"><b>Описание</b></td>
-                            </tr>
+                        
                             
-                                <tr>
-                                    <td class="param-col"><span>-i STR</span> <span>--issue_key STR</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">Ключ задачи в трекере</td>
-                                </tr>
+                                <h2 class="command-name">
+                                    Зарегистрировать новый чат
+                                </h2>
                             
-                                <tr>
-                                    <td class="param-col"><span>-d STR</span> <span>--duration STR</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">Затраченное время. Формат ввода <span>[>0]w[>0]d[>0]m[>0]s</span></td>
-                                </tr>
                             
-                                <tr>
-                                    <td class="param-col"><span>-s DATETIME</span> <span>--start DATETIME</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">[Опциональный] Время начала работы над задачей. По умолчанию устанавливается как разность времени сейчас и продолжительности работы. Формат ввода <span>YYYY-MM-DDThh:mm</span></td>
-                                </tr>
+                                <div class="bot-command">
+                                    <code>chats new -c &ltint&gt</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
                             
-                                <tr>
-                                    <td class="param-col"><span>-c STR</span> <span>--comment STR</span></td>
-                                    <td class="empty-col"></td>
-                                    <td class="param-descr-col">[Опциональный] Комментарий к записи в worklog. По умолчанию ничего не устанавливатеся</td>
-                                </tr>
+                                <div class="bot-command">
+                                    <code>chats new --chat_id &ltint&gt</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
                             
-                        </table>
+                            
+                            
+                        
+                            
+                                <h2 class="command-name">
+                                    Удалить чат
+                                </h2>
+                            
+                            
+                                <div class="bot-command">
+                                    <code>chats delete -c &ltint&gt</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                                <div class="bot-command">
+                                    <code>chats delete --chat_id &ltint&gt</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                            
+                            
+                        
+                    
+                </div>
+            
+        
+            
+                <div class="section-head">
+                    <h1 class="section-name">
+                        Startrek
+                    </h1>
+                    <i class="fa-solid fa-circle-chevron-up fa-2xl collapsed"></i>
+                </div>
+                <div class="container collapsed">
+                    
+                        <p class="description">
+                            Команды для взаимодействия с трекером задач
+                        </p>
                     
                     
-                        <h3>
-                            Примеры:
-                        </h3>
-                        <div class="bot-command">
-                            <code><i># создает запись worklog</i><br>startrek worklog-create -i CLOUD-12345 --duration 5h<br><br><i># создает запись worklog с комментарием</i><br>st worklog-create -i CLOUD-12345 -d 5h --comment Ковырял в носу и ничего не сделал<br><br><i># создает запись worklog с указанием времени начала</i><br>st worklog-create --issue_key CLOUD-12345 -d 5h -s 2022-12-15T10:00</code>
-                        </div>
+                        
+                            
+                                <h2 class="command-name">
+                                    Просмотреть worklog записи
+                                </h2>
+                            
+                            
+                                <div class="bot-command">
+                                    <code>st worklog [-f &ltdate&gt] [-t &ltdate&gt]</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                                <div class="bot-command">
+                                    <code>startrek worklog [--from &ltdate&gt] [--to &ltdate&gt]</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                            
+                                <table class="param-table">
+                                    <tr>
+                                        <td class="param-col"><b>Параметр</b></td>
+                                        <td class="empty-col"></td>
+                                        <td class="param-descr-col"><b>Описание</b></td>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-f DATE</span> <span>--from DATE</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">[Опциональный] При установке параметра from, будет выведен worklog за указанную дату. Формат ввода: <span>YYYY-MM-DD</span></td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-t DATE</span> <span>--to DATE</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">[Опциональный] При установке параметра to в связке с from, будет выведен worklog за промежуток [from, to). Формат ввода: <span>YYYY-MM-DD</span></td>
+                                        </tr>
+                                    
+                                </table>
+                            
+                            
+                                <h3>
+                                    Примеры:
+                                </h3>
+                                <div class="bot-command">
+                                    <code><i># вывод записей worklog за сегодня</i><br>st worklog<br><br><i># вывод записей worklog за 2022-12-15</i><br>startrek worklog -f 2022-12-15<br><br><i># вывод записей worklog за 2022-12-15/2022-12-17</i><br>st worklog --from 2022-12-15 --to 2022-12-18</code>
+                                </div>
+                            
+                        
+                            
+                                <h2 class="command-name">
+                                    Удалить worklog запись
+                                </h2>
+                            
+                            
+                                <div class="bot-command">
+                                    <code>st worklog-delete -i &ltstr&gt -w &ltint&gt</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                                <div class="bot-command">
+                                    <code>startrek worklog-delete --issue_key &ltstr&gt --worklog_id &ltint&gt</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                            
+                                <table class="param-table">
+                                    <tr>
+                                        <td class="param-col"><b>Параметр</b></td>
+                                        <td class="empty-col"></td>
+                                        <td class="param-descr-col"><b>Описание</b></td>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-i STR</span> <span>--issue_key STR</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">Ключ задачи в трекере</td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-w INT</span> <span>--worklog_id INT</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">Идентификатор записи в worklog</td>
+                                        </tr>
+                                    
+                                </table>
+                            
+                            
+                                <h3>
+                                    Примеры:
+                                </h3>
+                                <div class="bot-command">
+                                    <code><i># удаляет запись worklog</i><br>st worklog-delete -i CLOUD-12345 --worklog_id 587429134</code>
+                                </div>
+                            
+                        
+                            
+                                <h2 class="command-name">
+                                    Создать worklog запись
+                                </h2>
+                            
+                            
+                                <div class="bot-command">
+                                    <code>st worklog-create -i &ltstr&gt -d &ltstr&gt [-s &ltdatetime&gt] [-c &ltstr&gt]</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                                <div class="bot-command">
+                                    <code>startrek worklog-create --issue_key &ltstr&gt --duration &ltstr&gt [--start &ltdatetime&gt] [--comment &ltstr&gt]</code>
+                                    <i class="fa-solid fa-copy"></i>
+                                </div>
+                            
+                            
+                                <table class="param-table">
+                                    <tr>
+                                        <td class="param-col"><b>Параметр</b></td>
+                                        <td class="empty-col"></td>
+                                        <td class="param-descr-col"><b>Описание</b></td>
+                                    </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-i STR</span> <span>--issue_key STR</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">Ключ задачи в трекере</td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-d STR</span> <span>--duration STR</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">Затраченное время. Формат ввода <span>[>0]w[>0]d[>0]m[>0]s</span></td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-s DATETIME</span> <span>--start DATETIME</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">[Опциональный] Время начала работы над задачей. По умолчанию устанавливается как разность времени сейчас и продолжительности работы. Формат ввода <span>YYYY-MM-DDThh:mm</span></td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td class="param-col"><span>-c STR</span> <span>--comment STR</span></td>
+                                            <td class="empty-col"></td>
+                                            <td class="param-descr-col">[Опциональный] Комментарий к записи в worklog. По умолчанию ничего не устанавливатеся</td>
+                                        </tr>
+                                    
+                                </table>
+                            
+                            
+                                <h3>
+                                    Примеры:
+                                </h3>
+                                <div class="bot-command">
+                                    <code><i># создает запись worklog</i><br>startrek worklog-create -i CLOUD-12345 --duration 5h<br><br><i># создает запись worklog с комментарием</i><br>st worklog-create -i CLOUD-12345 -d 5h --comment Ковырял в носу и ничего не сделал<br><br><i># создает запись worklog с указанием времени начала</i><br>st worklog-create --issue_key CLOUD-12345 -d 5h -s 2022-12-15T10:00</code>
+                                </div>
+                            
+                        
                     
-                
-            </div>
+                </div>
+            
         
     
 </body>
