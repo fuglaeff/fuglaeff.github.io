@@ -444,7 +444,7 @@
                     
                 </div>
             
-        
+        <div class="textfield"></div>
     
 </body>
 <script>
@@ -459,6 +459,8 @@
             tg.close();
         })
     })
+
+    document.getElementsByClassName('textfield').innerText = tg.initData;
 
     document.querySelectorAll('.fa-circle-chevron-up').forEach(item => {
         item.addEventListener('click', event => {
