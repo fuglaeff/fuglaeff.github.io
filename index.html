@@ -1,482 +1,408 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+    <title>fuglaeff resume</title>
+    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css' rel='stylesheet'>
     <style>
-        ::-webkit-scrollbar {
-            overflow: hidden;
-            height: 0;
-            width: 0;
-        }
-        body {
-            font-family: monospace;
-            background-color: var(--tg-theme-bg-color);
-            color: var(--tg-theme-text-color);
-            max-width: 100%;
-            margin: 0 auto 0 auto;
-            padding:10px;
-        }
-        .section-head {
-            display: flex;
-        }
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;1,300&display=swap');
 
-        .section-head h1 {
-            float: left;
-            margin-right: auto;
-            display:inline-block;
-        }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-        .section-head .fa-circle-chevron-up {
-            float: right;
-            margin: auto 0 auto auto;
-            vertical-align: middle;
-            display:inline-block;
-            transition-duration: .2s;
-            transform: rotate(0);
-            transform-origin: center;
-        }
+body {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  margin: 0;
+  background-color: #23282e;
+  color: #ffffff;
+}
 
-        .section-head .fa-circle-chevron-up.collapsed {
-            float: right;
-            margin: auto 0 auto auto;
-            vertical-align: middle;
-            display:inline-block;
-            transition-duration: .2s;
-            transform: rotate(180deg);
-            transform-origin: center;
-        }
+hr.line {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: radial-gradient(circle, rgba(159,173,178,1) 5%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%);
+    color: #23282e;
+    height: 2px;
+    border: none;
+}
 
-        .container.collapsed {
-            display: none;
-        }
+ul {
+  padding: 0;
+  margin-left: 20px;
+}
 
-        .bot-command {
-            border-radius: .2rem;
-            background-color: var(--tg-theme-button-color);
-            padding:10px;
-            margin-bottom: 10px;
-            display: flex;
-        }
-        .bot-command code {
-            float: left;
-            color: var(--tg-theme-button-text-color);
-            margin-right: auto;
-            overflow-x: auto;
-            white-space: nowrap;
-            display:inline-block;
-        }
-        .bot-command .fa-copy {
-            float: right;
-            margin-left: auto;
-            vertical-align: middle;
-            display:inline-block;
-        }
+a:link {
+    color: #ffffff;
+}
 
-        .param-table {
-            padding:10px;
-        }
+a:visited {
+    color: #ffffff;
+}
 
-        .empty-col {
-            width: 5%;
-        }
-        .param-col {
-            text-align: left;
-            vertical-align: top;
-            width: 30%;
-        }
-        .param-col span {
-            white-space: nowrap;
-        }
+a:hover {
+    color: #ffffff;
+}
 
-        .param-descr-col {
-            text-align: left;
-            vertical-align: top;
-        }
+a:active {
+    color: #ffffff;
+}
 
-        .param-descr-col span {
-            white-space: nowrap;
-        }
+h2 {
+    margin: 0;
+    float: left;
+}
+
+/*** <--- CIRCLE STYLES ---> ***/
+.wrap-circles {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: #000;
+}
+
+.circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0.5rem;
+  border-radius: 50%;
+  background: #FFCDB2;
+  overflow: hidden;
+}
+.circle.per-25 {
+  background-image: conic-gradient(#B5838D 25%, #FFCDB2 0);
+}
+.circle.per-50 {
+  background-image: conic-gradient(#B5838D 50%, #FFCDB2 0);
+}
+.circle.per-75 {
+  background-image: conic-gradient(#B5838D 75%, #FFCDB2 0);
+}
+.circle.per-100 {
+  background-image: conic-gradient(#B5838D 100%, #FFCDB2 0);
+}
+.circle .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 115px;
+  height: 115px;
+  background: #000;
+  border-radius: 50%;
+  font-size: 1.85em;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.container {
+    background-color: #333a46;
+    border-radius: 25px;
+    padding: 25px;
+}
+
+.main-left {
+    /*width: 100px;*/
+    height: 900px;
+}
+
+.column-left {
+    float: left;
+    width: 300px;
+    height: 900px;
+}
+
+.column-right {
+    float: left;
+    width: 1000px;
+    margin: 0 0 50px 25px;
+    height: 900px;
+    overflow-y:scroll;
+}
+
+.block-right {
+    margin-bottom: 10px;
+}
+
+.block-info {
+    margin-top: 10px;
+}
+
+.block-right:last-of-type {
+    margin-bottom: 0;
+}
+
+.tech {
+    flex: 0 0 auto;
+    background-color: #384252;
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 175px;
+    margin-right: 10px;
+    height: 200px;
+}
+
+.date-column {
+    float: left;
+    width: 100px;
+}
+.content {
+    float: left;
+    width: 850px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row-scroll-x {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 850px;
+  height: 200px;
+  display: flex;
+}
+
+.shadow-italic {
+    color: #9fadb2;
+}
+
+.fa-chevron-up {
+  float: right;
+  margin: auto 0 auto auto;
+  transform: rotate(180deg);
+  transition: transform 0.2s linear;
+}
+
+.deg180 {
+    transform: rotate(0deg);
+    transition: transform 0.2s linear;
+}
     </style>
 </head>
 <body>
-    
-        
-            
-                <div class="section-head">
-                    <h1 class="section-name">
-                        Access logs
-                    </h1>
-                    <i class="fa-solid fa-circle-chevron-up fa-2xl collapsed"></i>
+<div class="row" style="width: 1350px; margin: 50px auto auto auto;">
+<div class="column-left">
+    <div class="container main-left" style="position: relative;">
+        <img src="photo.jpeg" style="border-radius: 100%; height: 250px;">
+        <h1 style="text-align: center;">Фуглаев Виталий</h1>
+        <br>
+        Python backend developer
+        <br>
+        23 года
+        <br>
+        Россия, Москва
+        <div class="contacts" style="bottom: 0; position: absolute; margin-bottom: 50px;">
+            <span>Контакты:</span>
+            <br>
+            <br>
+            <span><i class="fab fa-telegram-plane"></i> <a href="https://t.me/fuglaeff">@fuglaeff</a></span>
+            <br>
+            <span><i class="fas fa-envelope"></i> fuglaeff@gmail.com</span>
+        </div>
+    </div>
+</div>
+<div class="column-right">
+    <div class="container block-right">
+        <div class="row" style="display: flex;">
+            <h2>Обо мне</h2>
+            <i class="fas fa-chevron-up fa-2x"></i>
+        </div>
+        <div class="block-info" style="display: none;">
+        </div>
+    </div>
+    <div class="container block-right">
+        <div class="row" style="display: flex;">
+            <h2>Образование</h2>
+            <i class="fas fa-chevron-up fa-2x"></i>
+        </div>
+        <div class="block-info" style="display: none;">
+        <div class="row">
+        <div class="date-column">09.2017 06.2021</div>
+        <div class="content">
+            <span>Кафедра теоретической физики МГУ им М.В. Ломоносова</span>
+            <br>
+            <span>Бакалаврская (дипломная) работа: “Кротовые норы в центрах галактик”</span>
+        </div>
+            </div>
+            <hr class="line">
+        <div class="row">
+        <div class="date-column">02.2022 04.2022</div>
+        <div class="content">
+            <span>«Python-разработчик» Яндекс Практикум</span>
+        </div>
+            </div>
+        </div>
+    </div>
+    <div class="container block-right">
+        <div class="row" style="display: flex;">
+            <h2>Опыт работы</h2>
+            <i class="fas fa-chevron-up fa-2x"></i>
+        </div>
+        <div class="block-info" style="display: none;">
+        <div class="row">
+        <div class="date-column">09.2021 11.2022</div>
+        <div class="content">
+            <span>Специалист по клиентской аналитике</span>
+            <br>
+            <i class="shadow-italic">группа М.Видео-Эльдорадо</i>
+            <br>
+            <br>
+
+            <span>Рабочие задачи:</span>
+            <ul>
+            <li>Автоматизация сбора метрик и их агрегации</li>
+            <li>Доставка отчетности коллегам</li>
+            <li>Ad-hoc задачи</li>
+            <li>Аналитика клиентской активности</li>
+                </ul>
+            <span>Опыт, полученных во время работы в компании, как и сам рабочий процесс, можно разделить на две части:</span>
+            <ol>
+                <li>(~6 месяцев) Прокачка написания SQL запросов разной сложности (subqueries, join'ы, CTE, ...). Развитие как аналитика. Знакомство с данными и их проблемами.</li>
+                <li>(~8 месяцев) Разработка инструментов сбора отчетностей и взаимодействия с другими сервисами.</li>
+            </ol>
+
+            <span>Результаты:</span>
+            <ul>
+            <li>Решение проблемы потери связи чек-клиент. Был создан алгоритм, восстанавливающий связь чек-клиент по косвенным признакам (>10 признаков), который увеличил долю идентифицированных чеков до 98%. Впоследствии это помогло коллегам из разных отделов повысить качество план-фактного анализа;</li>
+                <li>Создание python пакета, включающего в себя инструменты по сбору, минимальной обработке данных для отчетностей и доставки их в разные отделы, а также компаниям-партнерам.</li>
+                </ul>
+
+            <span>Технологии использованные в работе:</span>
+            <div class="row row-scroll-x" style="margin-top: 16px;">
+                <div class="tech">
+                <b>SQL (PostgreSQL)</b>
+                <ul>
+                    <li>CRUD</li>
+                    <li>Subqueries</li>
+                    <li>JOIN's</li>
+                    <li>CTE</li>
+                    <li>Window function</li>
+                    <li>VIEW</li>
+                    <li>Function</li>
+                </ul>
+                    </div>
+
+                <div class="tech">
+                    <b>Python</b>
+                <ul>
+                    <li>pandas</li>
+                    <li>numpy</li>
+                    <li>psycopg2</li>
+                    <li>xlswriter</li>
+                    <li>smtplib</li>
+                </ul>
+                    </div>
+                <div class="tech">
+                    <b>Other</b>
+                <ul>
+                    <li>Jira</li>
+                    <li>Confluence</li>
+                </ul>
+                    </div>
+            </div>
+        </div>
+            </div>
+
+        <hr class="line">
+        <div class="row">
+        <div class="date-column">11.2022 03.2023</div>
+        <div class="content">
+            <span>Стажер-разработчик</span>
+            <br>
+            <i class="shadow-italic">Yandex Cloud IAM&RM</i>
+            <br>
+            <br>
+            <span>Работал с технологиями:</span>
+            <div class="row row-scroll-x" style="margin-top: 16px;">
+                <div class="tech">
+                    <b>Python</b>
+                <ul>
+                    <li>pyTelegramBotApi</li>
+                    <li>aiohttp</li>
+                    <li>threading</li>
+                    <li>APScheduler</li>
+                    <li>marshmallow</li>
+                    <li>cachetools</li>
+                </ul>
+                    </div>
+                <div class="tech">
+                    <b>Other</b>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>CSS</li>
+                </ul>
+                    </div>
                 </div>
-                <div class="container collapsed">
-                    
-                    
-                        
-                            
-                                <h2 class="command-name">
-                                    Просмотреть log записи
-                                </h2>
-                            
-                            
-                                <div class="bot-command">
-                                    <code>access-log -r <str></code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                                <div class="bot-command">
-                                    <code>access-log --request_id <str></code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                            
-                                <table class="param-table">
-                                    <tr>
-                                        <td class="param-col"><b>Параметр</b></td>
-                                        <td class="empty-col"></td>
-                                        <td class="param-descr-col"><b>Описание</b></td>
-                                    </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-r STR</span> <span>--request_id STR</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">Идентификатор log записи</td>
-                                        </tr>
-                                    
-                                </table>
-                            
-                            
-                                <h3>
-                                    Примеры:
-                                </h3>
-                                <div class="bot-command">
-                                    <code><i># находит log запись</i><br>access-log --request_id e1e1j12j1123klkgygc567890</code>
-                                </div>
-                            
-                        
-                    
-                </div>
-            
-        
-            
-                <div class="section-head">
-                    <h1 class="section-name">
-                        Chat
-                    </h1>
-                    <i class="fa-solid fa-circle-chevron-up fa-2xl collapsed"></i>
-                </div>
-                <div class="container collapsed">
-                    
-                    
-                        
-                            
-                                <h2 class="command-name">
-                                    Просмотреть зарегистрированные чаты
-                                </h2>
-                            
-                            
-                                <div class="bot-command">
-                                    <code>chats</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                            
-                            
-                        
-                            
-                                <h2 class="command-name">
-                                    Зарегистрировать новый чат
-                                </h2>
-                            
-                            
-                                <div class="bot-command">
-                                    <code>chats new -c &ltint&gt</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                                <div class="bot-command">
-                                    <code>chats new --chat_id &ltint&gt</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                            
-                                <table class="param-table">
-                                    <tr>
-                                        <td class="param-col"><b>Параметр</b></td>
-                                        <td class="empty-col"></td>
-                                        <td class="param-descr-col"><b>Описание</b></td>
-                                    </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-c INT</span> <span>--chat_id INT</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">Идентификатор чата в телеграм</td>
-                                        </tr>
-                                    
-                                </table>
-                            
-                            
-                                <h3>
-                                    Примеры:
-                                </h3>
-                                <div class="bot-command">
-                                    <code><i># регистрирует чат</i><br>chats new --chat_id 1234567890</code>
-                                </div>
-                            
-                        
-                            
-                                <h2 class="command-name">
-                                    Удалить чат
-                                </h2>
-                            
-                            
-                                <div class="bot-command">
-                                    <code>chats delete -c &ltint&gt</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                                <div class="bot-command">
-                                    <code>chats delete --chat_id &ltint&gt</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                            
-                                <table class="param-table">
-                                    <tr>
-                                        <td class="param-col"><b>Параметр</b></td>
-                                        <td class="empty-col"></td>
-                                        <td class="param-descr-col"><b>Описание</b></td>
-                                    </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-c INT</span> <span>--chat_id INT</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">Идентификатор чата в телеграм</td>
-                                        </tr>
-                                    
-                                </table>
-                            
-                            
-                                <h3>
-                                    Примеры:
-                                </h3>
-                                <div class="bot-command">
-                                    <code><i># удаляет чат</i><br>chats delete --chat_id 1234567890</code>
-                                </div>
-                            
-                        
-                    
-                </div>
-            
-        
-            
-                <div class="section-head">
-                    <h1 class="section-name">
-                        Startrek
-                    </h1>
-                    <i class="fa-solid fa-circle-chevron-up fa-2xl collapsed"></i>
-                </div>
-                <div class="container collapsed">
-                    
-                        <p class="description">
-                            Команды для взаимодействия с трекером задач
-                        </p>
-                    
-                    
-                        
-                            
-                                <h2 class="command-name">
-                                    Просмотреть worklog записи
-                                </h2>
-                            
-                            
-                                <div class="bot-command">
-                                    <code>st worklog [-f &ltdate&gt] [-t &ltdate&gt]</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                                <div class="bot-command">
-                                    <code>startrek worklog [--from &ltdate&gt] [--to &ltdate&gt]</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                            
-                                <table class="param-table">
-                                    <tr>
-                                        <td class="param-col"><b>Параметр</b></td>
-                                        <td class="empty-col"></td>
-                                        <td class="param-descr-col"><b>Описание</b></td>
-                                    </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-f DATE</span> <span>--from DATE</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">[Опциональный] При установке параметра from, будет выведен worklog за указанную дату. Формат ввода: <span>YYYY-MM-DD</span></td>
-                                        </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-t DATE</span> <span>--to DATE</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">[Опциональный] При установке параметра to в связке с from, будет выведен worklog за промежуток [from, to). Формат ввода: <span>YYYY-MM-DD</span></td>
-                                        </tr>
-                                    
-                                </table>
-                            
-                            
-                                <h3>
-                                    Примеры:
-                                </h3>
-                                <div class="bot-command">
-                                    <code><i># вывод записей worklog за сегодня</i><br>st worklog<br><br><i># вывод записей worklog за 2022-12-15</i><br>startrek worklog -f 2022-12-15<br><br><i># вывод записей worklog за 2022-12-15/2022-12-17</i><br>st worklog --from 2022-12-15 --to 2022-12-18</code>
-                                </div>
-                            
-                        
-                            
-                                <h2 class="command-name">
-                                    Удалить worklog запись
-                                </h2>
-                            
-                            
-                                <div class="bot-command">
-                                    <code>st worklog-delete -i &ltstr&gt -w &ltint&gt</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                                <div class="bot-command">
-                                    <code>startrek worklog-delete --issue_key &ltstr&gt --worklog_id &ltint&gt</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                            
-                                <table class="param-table">
-                                    <tr>
-                                        <td class="param-col"><b>Параметр</b></td>
-                                        <td class="empty-col"></td>
-                                        <td class="param-descr-col"><b>Описание</b></td>
-                                    </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-i STR</span> <span>--issue_key STR</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">Ключ задачи в трекере</td>
-                                        </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-w INT</span> <span>--worklog_id INT</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">Идентификатор записи в worklog</td>
-                                        </tr>
-                                    
-                                </table>
-                            
-                            
-                                <h3>
-                                    Примеры:
-                                </h3>
-                                <div class="bot-command">
-                                    <code><i># удаляет запись worklog</i><br>st worklog-delete -i CLOUD-12345 --worklog_id 587429134</code>
-                                </div>
-                            
-                        
-                            
-                                <h2 class="command-name">
-                                    Создать worklog запись
-                                </h2>
-                            
-                            
-                                <div class="bot-command">
-                                    <code>st worklog-create -i &ltstr&gt -d &ltstr&gt [-s &ltdatetime&gt] [-c &ltstr&gt]</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                                <div class="bot-command">
-                                    <code>startrek worklog-create --issue_key &ltstr&gt --duration &ltstr&gt [--start &ltdatetime&gt] [--comment &ltstr&gt]</code>
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
-                            
-                            
-                                <table class="param-table">
-                                    <tr>
-                                        <td class="param-col"><b>Параметр</b></td>
-                                        <td class="empty-col"></td>
-                                        <td class="param-descr-col"><b>Описание</b></td>
-                                    </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-i STR</span> <span>--issue_key STR</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">Ключ задачи в трекере</td>
-                                        </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-d STR</span> <span>--duration STR</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">Затраченное время. Формат ввода <span>[>0]w[>0]d[>0]m[>0]s</span></td>
-                                        </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-s DATETIME</span> <span>--start DATETIME</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">[Опциональный] Время начала работы над задачей. По умолчанию устанавливается как разность времени сейчас и продолжительности работы. Формат ввода <span>YYYY-MM-DDThh:mm</span></td>
-                                        </tr>
-                                    
-                                        <tr>
-                                            <td class="param-col"><span>-c STR</span> <span>--comment STR</span></td>
-                                            <td class="empty-col"></td>
-                                            <td class="param-descr-col">[Опциональный] Комментарий к записи в worklog. По умолчанию ничего не устанавливатеся</td>
-                                        </tr>
-                                    
-                                </table>
-                            
-                            
-                                <h3>
-                                    Примеры:
-                                </h3>
-                                <div class="bot-command">
-                                    <code><i># создает запись worklog</i><br>startrek worklog-create -i CLOUD-12345 --duration 5h<br><br><i># создает запись worklog с комментарием</i><br>st worklog-create -i CLOUD-12345 -d 5h --comment Ковырял в носу и ничего не сделал<br><br><i># создает запись worklog с указанием времени начала</i><br>st worklog-create --issue_key CLOUD-12345 -d 5h -s 2022-12-15T10:00</code>
-                                </div>
-                            
-                        
-                    
-                </div>
-            
-        <div class="textfield">Hello</div>
-    
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="container block-right">
+        <div class="row" style="display: flex;">
+            <h2>Hard skills</h2>
+            <i class="fas fa-chevron-up fa-2x"></i>
+        </div>
+        <div class="block-info" style="display: none;">
+        Python:
+            Django/DRF
+            FastAPI
+            SQLAlchemy
+            aiohttp
+            threading
+            pyTelegramBotAPI
+            logging
+            Pydantic
+            marshmallow
+            pytest
+            unittest
+
+        JS
+        CSS
+        SQL
+        </div>
+    </div>
+</div>
+<!--<div class="wrap-circles">-->
+<!--  <div class="circle per-0">-->
+<!--    <div class="inner">0%</div>-->
+<!--  </div>-->
+<!--  <div class="circle per-25">-->
+<!--    <div class="inner">25%</div>-->
+<!--  </div>-->
+<!--  <div class="circle per-50">-->
+<!--    <div class="inner">50%</div>-->
+<!--  </div>-->
+<!--  <div class="circle per-75">-->
+<!--    <div class="inner">75%</div>-->
+<!--  </div>-->
+<!--  <div class="circle per-100">-->
+<!--    <div class="inner">100%</div>-->
+<!--  </div>-->
+<!--</div>-->
+    </div>
 </body>
 <script>
-    let tg = window.Telegram.WebApp;
-
-    document.querySelectorAll('.fa-copy').forEach(item => {
-        item.addEventListener('click', event => {
-            let command_text = item.previousElementSibling.innerText;
-
-            navigator.clipboard.writeText(command_text);
-            alert('Команда скопирована');
-            tg.close();
-        })
-    })
-
-    document.getElementsByClassName('.textfield').innerText = tg.backgroundColor;
-
-    document.querySelectorAll('.fa-circle-chevron-up').forEach(item => {
-        item.addEventListener('click', event => {
-            let command_block = item.parentElement.nextElementSibling;
-            console.log(command_block);
-            let command_block_cls_list = command_block.classList;
-            console.log(command_block_cls_list);
-            if (command_block_cls_list.contains('collapsed')) {
-                command_block_cls_list.remove('collapsed');
-                item.classList.remove('collapsed');
+    Array.from(document.getElementsByClassName('fa-chevron-up')).forEach(function (item) {
+        item.addEventListener('click', function () {
+            console.log('Hi')
+            if (item.classList.contains('deg180')) {
+                item.classList.remove('deg180');
+                item.parentNode.nextElementSibling.style.display = 'none';
             } else {
-                command_block_cls_list.add('collapsed');
-                item.classList.add('collapsed');
+                item.classList.add('deg180');
+                item.parentNode.nextElementSibling.style.display = '';
             };
-
-        })
-    })
+        });
+    });
 </script>
 </html>
