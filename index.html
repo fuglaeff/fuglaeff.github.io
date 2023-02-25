@@ -233,7 +233,7 @@ h2 {
             Открыть все
         </div>
         <div id="to-en" class="container" style="float: right; padding: 10px; border-radius: 10px; margin-top: 4px; margin-right: 10px;">
-            Английская версия
+            EN
         </div>
     </div>
 </div>
@@ -369,6 +369,13 @@ h2 {
             <br>
             <i class="shadow-italic">Yandex Cloud IAM&RM</i>
             <br>
+            <br>
+            <span>Во время стажировки, рабочей областью были внутрисервисные/внутрикомандные проекты:</span>
+            <ul>
+                <li>инструмент сбора отчетностей по рабочему процессу команд;</li>
+                <li>telegram бот.</li>
+            </ul>
+            <span>Для первого проекта были добавлены новые фичи, расширяющие информацию, приводимую в отчете, исправлены баги. В telegram боте был сделан реворк парсера бот-команд, и внедрена работа с расписаниями с кастомной логикой.</span>
             <br>
             <span>Работал с технологиями:</span>
             <div class="row row-scroll-x" style="margin-top: 1rem;">
@@ -694,7 +701,7 @@ h2 {
 </body>
 <script>
     Array.from(document.getElementsByClassName('fa-chevron-up')).forEach(function (item) {
-        item.addEventListener('click', function () {
+        item.onclick = function () {
             if (item.classList.contains('deg180')) {
                 item.classList.remove('deg180');
                 item.parentNode.nextElementSibling.style.display = 'none';
@@ -702,10 +709,10 @@ h2 {
                 item.classList.add('deg180');
                 item.parentNode.nextElementSibling.style.display = '';
             };
-        });
+        };
     });
 
-    document.getElementById('showhide-all').addEventListener('click', function () {
+    document.getElementById('showhide-all').onclick = function () {
         let elText = this.innerText;
         Array.from(document.getElementsByClassName('fa-chevron-up')).forEach(function (item) {
             if (elText === 'Открыть все' && !item.classList.contains('deg180')) {
@@ -724,10 +731,10 @@ h2 {
             this.innerText = 'Открыть все';
         };
 
-    });
+    };
 
-    document.getElementById("to-en").onclick = function () {
-        location.href = "/en";
+    document.getElementById('to-en').onclick = function () {
+        location.href = '/en';
     };
 </script>
 </html>
