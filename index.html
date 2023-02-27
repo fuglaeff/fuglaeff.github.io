@@ -232,9 +232,9 @@ h2 {
         <div id="showhide-all" class="container" style="float: right; padding: 10px; border-radius: 10px; margin-top: 4px;">
             Открыть все
         </div>
-        <div id="to-en" class="container" style="float: right; padding: 10px; border-radius: 10px; margin-top: 4px; margin-right: 10px;">
-            EN
-        </div>
+<!--        <div id="to-en" class="container" style="float: right; padding: 10px; border-radius: 10px; margin-top: 4px; margin-right: 10px;">-->
+<!--            EN-->
+<!--        </div>-->
     </div>
 </div>
 <div id="main-content">
@@ -259,14 +259,15 @@ h2 {
     </div>
 </div>
 <div class="column-right">
-    <div class="container block-right">
-        <div class="row" style="display: flex;">
-            <h2>Обо мне</h2>
-            <i class="fas fa-chevron-up fa-2x"></i>
-        </div>
-        <div class="block-info" style="display: none;">
-        </div>
-    </div>
+<!--    <div class="container block-right">-->
+<!--        <div class="row" style="display: flex;">-->
+<!--            <h2>О себе</h2>-->
+<!--            <i class="fas fa-chevron-up fa-2x"></i>-->
+<!--        </div>-->
+<!--        <div class="block-info" style="display: none;">-->
+<!--          -->
+<!--        </div>-->
+<!--    </div>-->
     <div class="container block-right">
         <div class="row" style="display: flex;">
             <h2>Образование</h2>
@@ -286,6 +287,9 @@ h2 {
         <div class="date-column">02.2022 04.2022</div>
         <div class="content">
             <span>«Python-разработчик» Яндекс Практикум</span>
+            <br>
+            <br>
+            <span>После трех месяцев обучения на курсе, я от него отказался. Нагрузки и пользы от него не ощущал (продолжал просто учиться читая документации и гитхабы).</span>
         </div>
             </div>
         </div>
@@ -327,6 +331,17 @@ h2 {
             <span>Технологии использованные в работе:</span>
             <div class="row row-scroll-x" style="margin-top: 16px;">
                 <div class="tech">
+                    <b>Python</b>
+                <ul>
+                    <li>pandas</li>
+                    <li>numpy</li>
+                    <li>psycopg2</li>
+                    <li>xlswriter</li>
+                    <li>smtplib</li>
+                    <li>стандартная библиотека</li>
+                </ul>
+                    </div>
+                <div class="tech">
                 <b>SQL (PostgreSQL)</b>
                 <ul>
                     <li>CRUD</li>
@@ -336,18 +351,6 @@ h2 {
                     <li>Window function</li>
                     <li>VIEW</li>
                     <li>Function</li>
-                </ul>
-                    </div>
-
-                <div class="tech">
-                    <b>Python</b>
-                <ul>
-                    <li>pandas</li>
-                    <li>numpy</li>
-                    <li>psycopg2</li>
-                    <li>xlswriter</li>
-                    <li>smtplib</li>
-                    <li>стандартная библиотека</li>
                 </ul>
                     </div>
                 <div class="tech">
@@ -372,16 +375,20 @@ h2 {
             <br>
             <span>Во время стажировки, рабочей областью были внутрисервисные/внутрикомандные проекты:</span>
             <ul>
-                <li>инструмент сбора отчетностей по рабочему процессу команд;</li>
+                <li>инструмент для сбора отчетностей по рабочему процессу команд;</li>
                 <li>telegram бот.</li>
             </ul>
             <span>Для первого проекта были добавлены новые фичи, расширяющие информацию, приводимую в отчете, исправлены баги. В telegram боте был сделан реворк парсера бот-команд, и внедрена работа с расписаниями с кастомной логикой.</span>
+            <br>
+            <span>Получил опыт участия в ревью (по обе стороны) и работы в команде разработчиков.</span>
+            <br>
             <br>
             <span>Работал с технологиями:</span>
             <div class="row row-scroll-x" style="margin-top: 1rem;">
                 <div class="tech">
                     <b>Python</b>
                 <ul>
+                    <li>requests</li>
                     <li>pyTelegramBotApi</li>
                     <li>aiohttp</li>
                     <li>threading</li>
@@ -459,6 +466,7 @@ h2 {
             </div>
                 </li>
             </ol>
+                        <hr class="line">
             <span>Сериализация</span>
             <ol class="hard-list">
             <li><span style="float: left">Pydantic</span> <div class="progress">
@@ -492,6 +500,7 @@ h2 {
             </div>
                 </li>
             </ol>
+                        <hr class="line">
             <span>Тестирование и логирование</span>
             <ol class="hard-list">
                 <li><span style="float: left">logging</span> <div class="progress">
@@ -541,6 +550,7 @@ h2 {
             </div>
                 </li>
                 </ol>
+                        <hr class="line">
             <span>Telegram боты</span>
             <ol class="hard-list">
                 <li><span style="float: left">aiogram</span> <div class="progress">
@@ -574,6 +584,7 @@ h2 {
             </div>
                 </li>
                 </ol>
+                        <hr class="line">
             <span>Асинхронность и многопоточность</span>
             <ol class="hard-list">
             <li><span style="float: left">asyncio</span> <div class="progress">
@@ -607,6 +618,7 @@ h2 {
             </div>
                 </li>
                 </ol>
+                        <hr class="line">
             <span>Работа с SQL БД</span>
             <ol class="hard-list">
             <li><span style="float: left">SQLAlchemy</span> <div class="progress">
